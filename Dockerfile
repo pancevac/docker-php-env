@@ -42,6 +42,9 @@ RUN useradd -u 1000 -ms /bin/bash -g www www
 # Change current user to www
 USER www
 
+# Speed up composer performance
+RUN composer global require hirak/prestissimo --no-plugins --no-scripts
+
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
 CMD ["php-fpm"]
